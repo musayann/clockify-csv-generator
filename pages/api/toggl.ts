@@ -44,14 +44,14 @@ export default async function handler(
       Email: email || row["Email"],
       Tags: row["Tags"],
       Billable: "Yes",
-      StartDate: startDate.format('YYYY-MM-DD'),
-      StartTime: row["Start time"],
-      EndDate: endDate.format('YYYY-MM-DD'),
-      EndTime: row["End time"],
-      DurationHours: row["Duration"],
-      DurationDecimal: duration.asHours().toFixed(2),
-      BillableRate: 0,
-      BillableAmount: 0,
+      "Start Date": startDate.format('YYYY-MM-DD'),
+      "Start Time": row["Start time"],
+      "End Date": endDate.format('YYYY-MM-DD'),
+      "End Time": row["End time"],
+      "Duration (h)": row["Duration"],
+      "Duration (decimal)": duration.asHours().toFixed(2),
+      "Billable Rate (USD)": 0,
+      "Billable Amount (USD)": 0,
     }
   });
   const output = await convertToCsv(processed);

@@ -43,14 +43,14 @@ export default async function handler(
       Email: email || row["Email"],
       Tags: row["Tags"],
       Billable: "Yes",
-      StartDate: date.format('YYYY-MM-DD'),
-      StartTime: row["Start Time"],
-      EndDate: date.format('YYYY-MM-DD'),
-      EndTime: row["End Time"],
-      DurationHours: `${duration.hours() || '00'}:${duration.minutes() || '00'}:${duration.seconds() || '00'}`,
-      DurationDecimal: row["Duration in Hours"],
-      BillableRate: 0,
-      BillableAmount: 0,
+      "Start Date": date.format('YYYY-MM-DD'),
+      "Start Time": row["Start Time"],
+      "End Date": date.format('YYYY-MM-DD'),
+      "End Time": row["End Time"],
+      "Duration (h)": `${duration.hours() || '00'}:${duration.minutes() || '00'}:${duration.seconds() || '00'}`,
+      "Duration (decimal)": row["Duration in Hours"],
+      "Billable Rate (USD)": 0,
+      "Billable Amount (USD)": 0,
     }
   });
   const output = await convertToCsv(processed);
