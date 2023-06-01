@@ -24,16 +24,25 @@ export const parseCsvFile = async (files: formidable.Files, filename = 'file') =
     return csv()
         .fromFile(file.filepath);
 }
+export const cleanData = (data: any) => {
+    return data.map((row: any) => {
+        const rowData: any = {};
+        Object.keys(row).forEach((key: string) => {
+            rowData[key.trim()] = row[key] ?? "";
+        });
+        return rowData;
+    });
+};
 
 export const convertToCsv = async (data: any) => {
-    return json2csv(data)
+    return json2csv(cleanData(data))
 }
 
 export const downloadCsv = async (res: any, data: any, filename = 'output.csv') => {
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', `attachment; filename="output.csv"`);
-  
+
     res.status(200);
-  
+
     await pipeline(Readable.from(new Buffer(data)), res);
 }

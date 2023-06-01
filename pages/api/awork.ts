@@ -30,23 +30,25 @@ export default async function handler(
   const data = await parseCsvFile(files, 'file');
   const processed = data.map((row: any) => {
 
-    const duration = moment.duration(row["Duration"]);
-
+    const date = moment(row['Date']);
+    const duration = moment.duration({
+      seconds: row['Duration in Seconds'] ?? 0,
+    });
     return {
-      Project: project || row["Project"],
-      Department: department || row["Client"],
-      Description: row["Description"],
-      Task: row["Task"],
+      Project: project || row["Project Name"],
+      Department: department,
+      Description: row["Note"],
+      Task: row["Task Name"],
       User: user || row["User"],
       Email: email || row["Email"],
       Tags: row["Tags"],
       Billable: "Yes",
-      StartDate: row["Start date"],
-      StartTime: row["Start time"],
-      EndDate: row["End date"],
-      EndTime: row["End time"],
-      DurationHours: row["Duration"],
-      DurationDecimal: duration.asHours().toFixed(2),
+      StartDate: date.format('YYYY-MM-DD'),
+      StartTime: row["Start Time"],
+      EndDate: date.format('YYYY-MM-DD'),
+      EndTime: row["End Time"],
+      DurationHours: `${duration.hours() || '00'}:${duration.minutes() || '00'}:${duration.seconds() || '00'}`,
+      DurationDecimal: row["Duration in Hours"],
       BillableRate: 0,
       BillableAmount: 0,
     }
