@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clockify CSV Generator
+
+Clockify CSV Generator is a Next.js project that allows users to convert Toggl and awork CSV files into a Clockify-compatible CSV format. The generated CSV file can be manually uploaded to Clockify for importing time entries. Clockify is a popular time tracking tool used by individuals and teams to monitor their work hours.
+
+This project provides a user-friendly interface where users can upload their Toggl or awork CSV files. The application will parse the data and convert it into the required format for Clockify. The generated CSV file can then be downloaded and imported into Clockify, enabling a seamless transfer of time entries between different time tracking platforms.
+
+## Live URL
+
+You can access the live version of Clockify CSV Generator at [https://clockify-csv.netlify.app](https://clockify-csv.netlify.app/).
+
+## Features
+
+- Convert Toggl and awork CSV files into Clockify-compatible CSV format.
+- Upload and parse CSV files with time entry data.
+- Generate a CSV file with the converted data in the correct format for Clockify.
+- Provide an intuitive user interface for file upload and conversion.
+- Facilitate smooth migration of time entries from Toggl or awork to Clockify.
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Clone the repository:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   git clone https://github.com/musayann/clockify-csv-generator.git
+   ```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+2. Navigate to the project directory:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+   ```bash
+   cd clockify-csv-generator
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. Install the dependencies:
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to access the Clockify CSV Generator.
 
-## Deploy on Vercel
+## Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Clockify CSV Generator relies on the following main dependencies:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js: A React framework for server-side rendering and static site generation.
+- React: A JavaScript library for building user interfaces.
+- Tailwind CSS: A utility-first CSS framework for rapid UI development.
+- Moment.js: A JavaScript library for parsing, validating, manipulating, and formatting dates.
+- formidable: A Node.js module for parsing form data, especially file uploads.
+- csvtojson: A CSV parsing and conversion library for Node.js.
+- json-2-csv: A library for converting JSON to CSV format.
+
+Please refer to the `package.json` file for a complete list of dependencies.
+
+## Contributing
+
+Contributions to the Clockify CSV Generator project are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request on the project's GitHub repository.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute it as per the terms of the license.
+
+## Acknowledgments
+
+Clockify CSV Generator was developed by [@musyann](https://github.com/musayann) as a personal project to facilitate the conversion of time entries from Toggl and awork to a Clockify-compatible CSV format.
