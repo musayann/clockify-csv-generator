@@ -1,3 +1,6 @@
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ['latin'] })
 
 type FormProps = {
     id?: string;
@@ -23,7 +26,7 @@ const Form = ({ id, children, title, subtitle, footer, onSubmit }: FormProps) =>
     return (<Wrapper onSubmit={onSubmit}>
         <div id={id} className='w-3/4 mx-auto py-20'>
             <div className="shadow overflow-hidden sm:rounded-md flex flex-col divide-y">
-                <div className="px-4 py-5 sm:px-6 bg-gray-50">
+                <div className={`px-4 py-5 sm:px-6 bg-gray-50 ${inter.className}`}>
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{title}</h3>
                     <p className="mt-1 max-w-2xl text-sm text-gray-500">{subtitle}</p>
                 </div>

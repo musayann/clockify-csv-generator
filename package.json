@@ -9,12 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
     "csvtojson": "^2.0.10",
     "formidable": "^2.1.1",
     "json-2-csv": "^4.0.0",
     "moment": "^2.29.4",
-    "next": "12.1.6",
+    "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -26,8 +25,8 @@
     "autoprefixer": "^10.4.7",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.3",
+    "postcss": "8.4.24",
+    "tailwindcss": "3.3.2",
     "typescript": "4.7.4"
   }
 }
