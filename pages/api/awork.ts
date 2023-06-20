@@ -32,7 +32,7 @@ export default async function handler(
   const processed = data.map((rowData: any) => {
     const row = new Row(rowData);
 
-    const date = moment(row.get('Date'));
+    const date = moment(row.get('Date'), 'DD/MM/YYYY');
     const duration = moment.duration({
       seconds: row.get('Duration in Seconds') ?? 0,
     });
