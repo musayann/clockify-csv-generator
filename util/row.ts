@@ -11,7 +11,7 @@ export class Row {
     }
 
     private convertToKebabCase(str: string) {
-        const converted = KebabCase(str);
+        const converted = KebabCase(str.trim());
         return converted;
     }
 
