@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { convertToCsv, downloadCsv, parseCsvFile, parseForm } from '../../util/parseForm';
 import moment from 'moment';
+import { Row } from '../../util/row';
 
 
 export const config = {
@@ -28,27 +29,28 @@ export default async function handler(
   const { files, fields } = await parseForm(req);
   const { project, department, user, email } = fields;
   const data = await parseCsvFile(files, 'file');
-  const processed = data.map((row: any) => {
+  const processed = data.map((rowData: any) => {
+    const row = new Row(rowData);
 
-    const duration = moment.duration(row["Duration"]);
+    const duration = moment.duration(row.get("Duration"));
 
-    const startDate = moment(row["Start date"]);
-    const endDate = moment(row["End date"]);
+    const startDate = moment(row.get("Start date"));
+    const endDate = moment(row.get("End date"));
 
     return {
-      Project: project || row["Project"],
-      Department: department || row["Client"],
-      Description: row["Description"],
-      Task: row["Task"],
-      User: user || row["User"],
-      Email: email || row["Email"],
-      Tags: row["Tags"],
+      Project: project || row.get("Project"),
+      Department: department || row.get("Client"),
+      Description: row.get("Description"),
+      Task: row.get("Task"),
+      User: user || row.get("User"),
+      Email: email || row.get("Email"),
+      Tags: row.get("Tags"),
       Billable: "Yes",
       "Start Date": startDate.format('YYYY-MM-DD'),
-      "Start Time": row["Start time"],
+      "Start Time": row.get("Start time"),
       "End Date": endDate.format('YYYY-MM-DD'),
-      "End Time": row["End time"],
-      "Duration (h)": row["Duration"],
+      "End Time": row.get("End time"),
+      "Duration (h)": row.get("Duration"),
       "Duration (decimal)": duration.asHours().toFixed(2),
       "Billable Rate (USD)": 0,
       "Billable Amount (USD)": 0,
