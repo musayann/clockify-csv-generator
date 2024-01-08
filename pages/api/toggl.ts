@@ -52,8 +52,6 @@ export default async function handler(
       "End Time": row.get("End time"),
       "Duration (h)": row.get("Duration"),
       "Duration (decimal)": duration.asHours().toFixed(2),
-      "Billable Rate (USD)": 0,
-      "Billable Amount (USD)": 0,
     }
   });
   const output = await convertToCsv(processed);
